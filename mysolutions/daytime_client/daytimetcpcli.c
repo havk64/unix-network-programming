@@ -1,3 +1,16 @@
+/*
+ * Simple Daytime Client
+ * This client establishes a TCP connection with a server and the server simply
+ * sends back the current time and date in a human-readable format.
+ * Usage:
+ *   $ gcc -Wall -Werror -Wextra -pedantic daytimetcpcli.c -o daytime
+ *   $ ./daytime <address of any Internet Time Servers>
+ *
+ * (Here you have a good list: http://tf.nist.gov/tf-cgi/servers.cgi)
+ * The output should be something like:
+ *   $ 57793 17-02-09 22:47:41 00 0 0 167.9 UTC(NIST) *
+ */
+
 #include <stdio.h>      /* printf, perror */
 #include <stdlib.h>     /* exit */
 #include <unistd.h>     /* read, write, close */
