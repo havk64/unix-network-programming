@@ -42,12 +42,9 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	printf("Socket file descriptor is: %i", sockfd);
-
 	memset(&servaddr, 0, sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
 	servaddr.sin_port   = htons(13);	/* daytime server */
-
 	memcpy(&servaddr.sin_addr.s_addr, server -> h_addr, server -> h_length);
 
 	if (connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr)) < 0)
