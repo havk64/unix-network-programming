@@ -32,13 +32,17 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		perror("socket error");
-
-	if ( (server = gethostbyname(argv[1])) == NULL ) {
-	  perror("Error, no such host!");
 		exit(1);
 	}
+
+	if ( (server = gethostbyname(argv[1])) == NULL ) {
+		perror("Error, no such host!");
+		exit(1);
+	}
+
+	printf("Socket file descriptor is: %i", sockfd);
 
 	memset(&servaddr, 0, sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
