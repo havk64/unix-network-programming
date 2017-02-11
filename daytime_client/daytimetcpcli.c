@@ -34,12 +34,16 @@ int main(int argc, char **argv)
 		fprintf(stderr, "usage: %s <IPaddress>", argv[0]);
 		exit(1);
 	}
-
+	/* Create an Internet(AF_INET) stream(SOCK_STREAM) socket
+	 * (that is, a TCP Socket)
+	 * The socket function returns a file descriptor(sockfd)
+	 * For more information about sockets take a look at socket(2) man pages */
 	if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		perror("socket error");
 		exit(1);
 	}
-
+	/* The gethostbyname function returns a structure of type hostent(1) for
+   * the given host name specified as the first argument in the command line */
 	if ( (server = gethostbyname(argv[1])) == NULL ) {
 		perror("Error, no such host!");
 		exit(1);
@@ -65,3 +69,13 @@ int main(int argc, char **argv)
 	close(sockfd);
 	return(0);
 }
+
+/*
+1- struct hostent {
+	  char  *h_name;	- official name of the host
+	  char **h_aliases;	- alias list
+	  int    h_addrtype;	- host address type
+	  int    h_length; 	- length of address
+	  char **h_addr_list;	- list of addresses
+	}
+ */
