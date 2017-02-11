@@ -2,11 +2,14 @@
  * Simple Daytime Client
  * This client establishes a TCP connection with a server and the server simply
  * sends back the current time and date in a human-readable format.
- * Usage:
- *   $ gcc -Wall -Werror -Wextra -pedantic daytimetcpcli.c -o daytime
- *   $ ./daytime <address of any Internet Time Servers>
  *
+ * Compile with:
+ *   $ gcc -Wall -Werror -Wextra -pedantic daytimetcpcli.c -o daytime
+ *
+ * Usage:
+ *   $ ./daytime <address of any Internet Time Server>
  * (Here you have a good list: http://tf.nist.gov/tf-cgi/servers.cgi)
+ *
  * The output should be something like:
  *   $ 57793 17-02-09 22:47:41 00 0 0 167.9 UTC(NIST) *
  */
@@ -28,7 +31,7 @@ int main(int argc, char **argv)
 	struct  hostent *server;
 
 	if (argc != 2) {
-		perror("usage: a.out <IPaddress>");
+		fprintf(stderr, "usage: %s <IPaddress>", argv[0]);
 		exit(1);
 	}
 
@@ -42,8 +45,8 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	memset(&servaddr, 0, sizeof(servaddr));
-	servaddr.sin_family = AF_INET;
+	memset(&servaddr, 0, sizeof(servaddr)); /* Zero padding server address(servaddr) */
+	servaddr.sin_family = AF_INET;		/* Internet Protocol v4 addresses */
 	servaddr.sin_port   = htons(13);	/* daytime server */
 	memcpy(&servaddr.sin_addr.s_addr, server -> h_addr, server -> h_length);
 
