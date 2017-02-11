@@ -20,7 +20,7 @@
 #include <string.h>     /* memcpy, memset */
 #include <sys/socket.h> /* socket, connect */
 #include <netinet/in.h> /* struct sockaddr_in, struct sockaddr */
-#define MAXLINE 4096	/* max text line length */
+#define MAXLINE 51	/* max text line length */
 #include <netdb.h>      /* struct hostent, gethostbyname */
 
 int main(int argc, char **argv)
