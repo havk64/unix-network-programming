@@ -29,6 +29,11 @@ int main(int argc, char ** argv)
 	char	recvline[MAXLINE + 1];
 	struct  sockaddr_in6 servaddr;
 
+	if(argc != 2) {
+		fprintf(stderr, "usage: %s <IPaddress>", argv[0]);
+		exit(1);
+	}
+
 	/* Create an Internet(AF_INET) stream(SOCK_STREAM) socket
 	 * (that is, a TCP Socket)
 	 * The socket function returns a file descriptor(sockfd)
