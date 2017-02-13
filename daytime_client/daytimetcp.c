@@ -1,10 +1,10 @@
 /*
- * Very Simple Daytime Client
+ * Simple Daytime Client
  * This client establishes a TCP connection with a server that simply
  * sends back the current time and date in a human-readable format.
  *
  * Compile with:
- *   $ gcc -Wall -Werror -Wextra -pedantic daytimetcp.c -o daytime
+ *   $ gcc -Wall -Werror -Wextra -pedantic daytimetcp.c -o daytimetcp
  *
  * Usage:
  *   $ ./daytimetcp
@@ -40,18 +40,19 @@ int main()
 		exit(1);
 	}
 
-	memset(&servaddr, 0, sizeof(servaddr)); /* Zero padding server address(servaddr) */
-	servaddr.sin_family = AF_INET;		/* Internet Protocol v4 addresses */
-	servaddr.sin_port   = htons(13);	/* daytime server port */
-	
+	memset(&servaddr, 0, sizeof(servaddr)); /* Fill the struct with 0s) */
+	servaddr.sin_family = AF_INET;		/* Address Family(Internet Protocol v4) */
+	servaddr.sin_port   = htons(13);	/* Daytime server port(converted to MSB) */
+	/* inet_pton function converts an address from text presentation(p) such as
+	 * 192.168.1.1 to binary form(network(n) byte order)*/
 	if (inet_pton(AF_INET, time_server, &servaddr.sin_addr) <= 0) {
 		fprintf(stderr, "inet_pton error for %s\n", time_server);
 		exit(1);
 	}
-
+	/* Connect the socket */
 	if (connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr)) < 0)
 		perror("connect error");
-
+	/* Read the response and prints it to stdout */
 	while ( (n = read(sockfd, recvline, MAXLINE)) > 0) {
 		recvline[n] = 0;	/* null terminate */
 		if (fputs(recvline, stdout) == EOF)
