@@ -6,7 +6,7 @@ Implementation of alternative solutions for the [**Unix Network Programming Book
 
 ## Description
 
-This repository gathers source code examples of utlization of Unix Sockets API.
+This repository gathers source code examples of utlization of Unix Sockets API.  
 The original examples for this book don't compile on modern Linux systems, so I
 decided to start this project in order to make available an updated collection
 of good examples for building communication programs using this powerful Socket API.
