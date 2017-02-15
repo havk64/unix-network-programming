@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 
 	memset(&servaddr, 0, sizeof(servaddr)); /* Zero padding server address(servaddr) */
 	servaddr.sin_family = AF_INET;		/* Internet Protocol v4 addresses */
-	servaddr.sin_port   = htons(13);	/* daytime server */
+	servaddr.sin_port   = htons(13);	/* daytime server port */
 	memcpy(&servaddr.sin_addr.s_addr, server -> h_addr, server -> h_length);
 
 	if (connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr)) < 0)
