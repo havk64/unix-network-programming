@@ -13,6 +13,7 @@
  *
  * The output should be something like:
  *   $ 57793 17-02-09 22:47:41 00 0 0 167.9 UTC(NIST) *
+ *   $ counter = 1
  */
 
 #include <stdio.h>      /* printf, perror */
