@@ -4,11 +4,12 @@
  * sends back the current time and date in a human-readable format.
  *
  * Compile with:
- *   $ gcc -Wall -Werror -Wextra -pedantic daytimetcpcli.c -o daytime
+ *   $ gcc -Wall -Werror -Wextra -pedantic daytimetcpcli.c
  *
  * Usage:
- *   $ ./daytime <address of any Internet Time Server>
- * (Here you have a good list: http://tf.nist.gov/tf-cgi/servers.cgi)
+ *   $ ./daytime <address of any Internet Time Server in numerical form>
+ *   e.g., 216.228.192.69
+ * (Good list at: http://tf.nist.gov/tf-cgi/servers.cgi)
  *
  * The output should be something like:
  *   $ 57793 17-02-09 22:47:41 00 0 0 167.9 UTC(NIST) *
