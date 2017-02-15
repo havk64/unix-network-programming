@@ -22,7 +22,6 @@
 #include <sys/socket.h> /* socket, connect */
 #include <netinet/in.h> /* struct sockaddr_in, struct sockaddr */
 #define MAXLINE 51	/* max text line length */
-#include <netdb.h>      /* struct hostent, gethostbyname */
 #include <arpa/inet.h>	/* inet_pton */
 
 int main(int argc, char **argv)
