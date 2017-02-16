@@ -19,7 +19,7 @@
 #include <string.h>     /* memcpy, memset */
 #include <sys/socket.h> /* socket, connect */
 #include <netinet/in.h> /* struct sockaddr_in, struct sockaddr */
-#define MAXLINE 51	/* max text line length */
+#define MAXLINE 64	/* max text line length */
 #include <arpa/inet.h>	/* inet_pton */
 
 int main()
