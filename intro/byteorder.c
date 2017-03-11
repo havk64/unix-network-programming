@@ -1,3 +1,6 @@
+/*
+ * Program to determine the host byte order
+ */
 #include <stdio.h>
 
 int main()
