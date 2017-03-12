@@ -1,3 +1,6 @@
+/* Converts an IPv4 address in from its binary form to presentation(dot decimal notation).
+ * "n" stands for numeric, while "p" stands for presentation("n" to "p" => numeric to presentation)
+ */
 #include <stdio.h>	/* snprintf */
 #include <netinet/in.h> /* in_addr */
 #include <string.h>     /* memcpy */
