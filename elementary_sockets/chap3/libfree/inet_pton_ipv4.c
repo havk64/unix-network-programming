@@ -1,3 +1,6 @@
+/* Converts a dot decimal notation string with an IPv4 address to a binary form.
+ * "p" stands for presentation and "n" to numeric("p" to "n" => presentation to numeric)
+ */
 #include <netinet/in.h> /* in_addr */
 #include <string.h>     /* memcpy */
 #include <errno.h>	/* errno */
